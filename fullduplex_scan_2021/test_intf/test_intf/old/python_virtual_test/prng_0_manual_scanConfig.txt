@@ -1,0 +1,30 @@
+#Scan configuration for trng module
+#End of chain first!!! scan_out to scan_in
+#Signal direction based on looking at the DUT
+module trng
+
+input bias_comp_en = 0
+input [2:0] 	markov_memory = 3'b000
+input multi_level_en  = 1'b0
+input stagger_en = 0
+input [6:0] 	updown_count_thresh = 0
+input [9:0] sample_window  = 0
+input 	low_bw  = 0
+input [5:0] low_bw_divider = 1
+input comp_sel = 0
+input compfastx = 0
+input use_prng_bits=0
+input [9:0] dac_code_external = 10'h3ff
+input [9:0] dac_code_start = 10'h000
+input override_dac_code = 1'b1
+output [127:0]	random_key=0
+output [9:0] dac_code=0
+input random_key_en = 0
+input attcapsel= 1
+input prng_bit_pad_enx = 1'b0
+input trng_out_pad_enx = 1'b0
+input trng_valid_pad_enx = 1'b0
+input div_clk_out_pad_enx =1'b0
+input [5:0] f_id = 6'b111111
+input pad_clk_en=0
+input shaped_clk_en=0

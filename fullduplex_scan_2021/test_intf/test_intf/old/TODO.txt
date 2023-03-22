@@ -1,0 +1,3 @@
+Get frequency from scope
+Read from port
+Write to port

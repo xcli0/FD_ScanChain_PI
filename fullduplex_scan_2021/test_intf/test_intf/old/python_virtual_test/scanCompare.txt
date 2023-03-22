@@ -1,0 +1,26 @@
+Signal               Scan-in Value        Scan-out Value      
+pad_clk_en           1'd0                 1'd0                
+shaped_clk_en        1'd0                 1'd0                
+multi_level_en       1'b0                 1'b0                
+f_id                 6'b111111            6'b0                
+override_dac_code    1'b1                 1'b0                
+prng_bit_pad_enx     1'b0                 1'b0                
+comp_sel             1'd0                 1'd0                
+use_prng_bits        1'd0                 1'd0                
+bias_comp_en         1'd0                 1'd0                
+trng_out_pad_enx     1'b0                 1'b0                
+markov_memory        3'b0                 3'b0                
+stagger_en           1'd0                 1'd0                
+low_bw               1'd0                 1'd0                
+compfastx            1'd0                 1'd0                
+dac_code_external    10'h3ff              10'h0               
+trng_valid_pad_enx   1'b0                 1'b0                
+sample_window        10'd0                10'd0               
+dac_code_start       10'h0                10'h0               
+attcapsel            1'd1                 1'd0                
+div_clk_out_pad_enx  1'b0                 1'b0                
+low_bw_divider       6'd1                 6'd0                
+updown_count_thresh  7'd0                 7'd0                
+random_key_en        1'd0                 1'd0                
+dac_code             10'd0                10'd0               
+random_key           128'd0               128'd0              

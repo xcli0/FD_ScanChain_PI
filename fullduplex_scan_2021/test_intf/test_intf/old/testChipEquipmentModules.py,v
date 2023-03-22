@@ -1,0 +1,105 @@
+head	1.1;
+access;
+symbols;
+locks
+	sathe:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2016.07.31.16.57.06;	author sathe;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@import re
+import os
+import sys
+import warnings
+#import the gpib interface module
+#import the usb interface module
+#import the daq interface module 
+
+#This package was started by Visvesh Sathe for 
+#the rest of the group to build upon. It contains a variety of test equipment
+#which will be digitally interfaced with for the purpose of chip test.
+#Some examples are power supplies, scopes, ammeters, function generators and 
+#power cards.
+
+# Basic naming convention: <function>_<model> unless class is more generic (e.g. power_supply below)
+
+class power_port():
+    def __init__(self,name, vmin, vnom, vmax):
+        self.portName="undef"
+        self.vmin=vmin
+        self.v=vnom
+        self.vmax=vmax
+        self.i="undef"
+        
+
+###Standard power supply class. Code written with intent for CMOS test. Some supplies have negative polarity. 
+###Caller provides a tuple of (port_name, minVdd, maxVdd). Once the port classes are defined, you have
+###pretty much what you need to set voltages, read voltages and read currents
+class power_supply():
+    def __init__(self,configList):
+        self.portlist=[]
+        i=0
+        for port in configList:
+            if abs(configList[1]<abs(configList[2])) : 
+                self.portlist[i]=(configList[0], configList[1], configList[1], configList[2])
+            else:
+                self.portlist[i]=(configList[0], configList[1], configList[2], configList[2])
+            i+=1
+        #Class methods to be filled in based on gpib python wrappers
+        #Assert voltage value on supply
+    def assert_voltage(self,port,voltage_value):
+        if voltage_value < portList[port].vmin: 
+            warnings.warn('Voltage at port {0} below limit. Setting to lower limit'.format(port))
+            voltage_value = portList[port].vmin
+        if voltage_value > portList[port].vmax: 
+            warnings.warn('Voltage at port {0} above limit. Setting to upper limit'.format(port))
+            voltage_value = portList[port].vmax
+            ##### Call the voltage setting function on the port with desired value
+            ########################################################################
+            ########################################################################
+            ########################################################################
+            ########################################################################
+
+    def read_current(self,port):
+        ###Call the current reading function here####
+        ###i_port = i_read(port)
+        ########################################################################
+        ########################################################################
+        ########################################################################
+        ########################################################################
+        ########################################################################        
+        return i_port
+### End of supply class
+
+
+
+
+###Again, here we need to provide relevant configuration. Need to understand from Fahim these are. USB port names?
+###May have to define scope ports here also with an oscilloscope_port class.
+class oscilloscope():
+    def __init__(self,configList):
+        self.portName="undef"
+        
+    ###Read data from the scope. This may be specific for each metric 
+    ###(amplitude, frequency etc..) or one combined result to be parsed
+    def read_data():
+        #Details to be worked out
+
+    
+
+    
+@

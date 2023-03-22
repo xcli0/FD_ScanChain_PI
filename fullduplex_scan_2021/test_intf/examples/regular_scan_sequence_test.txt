@@ -1,0 +1,150 @@
+input	       		NA0
+input	       		BAL3_6
+input	       		BAL3_5
+input	 		BAL3_4
+input	 		BAL3_3
+input	 		BAL3_2
+input	 		BAL3_1
+input	       		BAL3_0
+input	       		NA1
+input	 		BAL1_6
+input	 		BAL1_5
+input	 		BAL1_4
+input	 		BAL1_3
+input	 		BAL1_2
+input	 		BAL1_1
+input	 		BAL1_0
+input	 		NA2
+intput	 		BAL2_6
+intput	 		BAL2_5
+input	 		BAL2_4
+input	 		BAL2_3
+input	 		BAL2_2
+input	 		BAL2_1
+input	 		BAL2_0
+input	 		NA3
+input	 		PA_EN
+input	 [3:0] 		SEL90_1
+input	 [1:0] 		SEL90_2
+input	 		NA4
+input	 [3:0] 		SEL0_1
+input	 [1:0] 		SEL0_2
+input	 [2:0] 		SEL45_1
+input	 [3:0] 		SEL45_2
+input	 [1:0] 		SEL45_3
+input	 [4:0] 		NA5
+input	 [2:0] 		SELR_C90
+input	 [1:0] 		SELR_F1_90
+input	 [3:0] 		SELR_F2_90
+input	 [2:0] 		SELR_C0
+input	 [1:0] 		SELR_F1_0
+input	 [3:0] 		SELR_F2_0
+input	 [2:0] 		SELR_C45
+input	 [1:0] 		SELR_F1_45
+input	 [3:0] 		SELR_F2_45
+input	 [7:0] 		NA6
+input	 [7:0] 		STG51_Q_REV
+input	 [7:0] 		STG51_I_REV
+input	 [7:0] 		STG41_Q_REV
+input	 [7:0] 		STG41_I_REV
+input	 [7:0] 		STG31_Q_REV
+input	 [7:0] 		STG31_I_REV
+input	 [7:0] 		STG21_Q_REV
+input	 [7:0] 		STG21_I_REV
+input	 [7:0] 		STG11_Q_REV
+input	 [7:0] 		STG11_I_REV
+input	 [2:0] 		NA7
+input	 [3:0] 		BIAS11_REV
+input	 [3:0] 		CAN_SW_REV
+input	 [3:0] 		BIAS1_REV
+input	 [2:0] 		TAP4_SW1_REV
+input	 [2:0] 		TAP3_SW1_REV
+input	 [2:0] 		TAP2_SW1_REV
+input	 [2:0] 		TAP1_SW1_REV
+input	 [2:0] 		TAP0_SW1_REV
+input	 [5:0] 		SWN1_REV
+input	 [5:0] 		SWP1_REV
+input	 [2:0] 		GM_SW_N1_REV
+input	 [2:0] 		GM_SW_P1_REV
+input	 [7:0] 		STG52_Q_REV
+input	 [7:0] 		STG52_I_REV
+input	 [7:0] 		STG42_Q_REV
+input	 [7:0] 		STG42_I_REV
+input	 [7:0] 		STG32_Q_REV
+input	 [7:0] 		STG32_I_REV
+input	 [7:0] 		STG22_Q_REV
+input	 [7:0] 		STG22_I_REV
+input	 [7:0] 		STG12_Q_REV
+input	 [7:0] 		STG12_I_REV
+input	 [3:0]      	BIAS12_REV
+input	 [3:0]      	CAN_SW2_REV
+input	 [3:0] 		BIAS2_REV
+input	 [2:0] 		TAP4_SW2_REV
+input	 [2:0] 		TAP3_SW2_REV
+input	 [2:0] 		TAP2_SW2_REV
+input	 [2:0] 		TAP1_SW2_REV
+input	 [2:0] 		TAP0_SW2_REV
+input	 [5:0] 		SWN2_REV
+input	 [5:0] 		SWP2_REV
+input	 [2:0] 		GM_SW_N2_REV
+input	 [2:0] 		GM_SW_P2_REV
+input	 		EN_RL_OFF1
+input	 [1:0] 		TIA_SW1
+input	 [1:0] 		VG1
+input	 [1:0] 		GC
+input	 		SW_LNA
+input	 		LNA_OFF
+input	 [1:0] 		NA8
+input	 		CUR_SW
+input	 [7:0] 		CUR_SW1
+input	 [2:0] 		CUR1_BBC
+input	 [2:0] 		CUR2_SYN
+input	 [2:0] 		CUR3_RX
+input	 [2:0] 		CUR4_FFC1
+input	 [2:0] 		CUR5_FFC2
+input	 [2:0] 		NA9
+input	 [2:0] 		GM_SW_P1T_REV
+input	 [2:0] 		GM_SW_N1T_REV
+input	 [5:0] 		SWP1T
+input	 [5:0] 		SWN1T
+input	 [2:0] 		TAP0_SW1T_REV
+input	 [2:0] 		TAP1_SW1T_REV
+input	 [2:0] 		TAP2_SW1T_REV
+input	 [2:0] 		TAP3_SW1T_REV
+input	 [2:0] 		TAP4_SW1T_REV
+input	 [3:0] 		BIAS1T
+input	 [3:0] 		CAN_SW1T
+input	 [3:0] 		BIAS11T
+input	 [7:0] 		STG11_IT
+input	 [7:0] 		STG11_QT
+input	 [7:0] 		STG21_IT
+input	 [7:0] 		STG21_QT
+input	 [7:0] 		STG31_IT
+intput	 [7:0] 		STG31_QT
+intput	 [7:0] 		STG41_IT
+intput	 [7:0] 		STG41_QT
+intput	 [7:0] 		STG51_IT
+intput	 [7:0] 		STG51_QT
+intput	 		NA10
+intput	 		CUR_SWT
+intput	 [7:0] 		CUR_SW1T
+intput	 [2:0] 		CUR1T_FFCT
+intput	 [2:0] 		CUR2T_RXT
+input	       		NA11
+input	 [1:0]      	TIA_SW1T
+input	 		EN_RL_OFF1T
+input	 [1:0] 		VG1T
+input	 [1:0] 		GCT
+input	 		SW_LNAT
+input	 		LNA_OFFT
+input	       		LO_SEL1
+input	 [1:0]      	NA12
+input	 		LO_SEL
+input	 		PD
+input	 [5:0] 		DIV
+input	 		RST
+input	 [9:0] 		SW_PLL
+input	 [2:0]      	NA13
+input	 [1:0]      	TIA_SW2
+intput	       		EN_RL_OFF2
+intput	 [1:0]      	VG2

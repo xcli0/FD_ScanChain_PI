@@ -1,0 +1,1 @@
+prng_bit trng_out trng_out_valid 2        1        2              2        1        2              2        1        2              2        1        2              2        1        2              2        1        2              2        1        2              2        1        2              2        1        2              2        1        2              

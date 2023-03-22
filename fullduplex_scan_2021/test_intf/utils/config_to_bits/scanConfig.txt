@@ -1,0 +1,14 @@
+
+#Test input file for conversion script
+module some_module
+
+blablabla
+
+
+input      [2: 0] moduleSelect = 3'd0
+input [       2: 0] modeSelect = 3'd14
+  input [2: 0  ] SNGModeSelect = 3'd0
+input [15    : 0] finalCycle   = 16'd512
+output    doneToChain   = 1'b0
+output   [15:0] idleToChain = 16'hDEAD
+input [15: 0]     x0  =    16'hBEEF

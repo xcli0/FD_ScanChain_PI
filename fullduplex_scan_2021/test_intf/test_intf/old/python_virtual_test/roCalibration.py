@@ -1,0 +1,97 @@
+#!/usr/bin/python
+import re
+import os
+import sys
+import warnings
+import testChipEquipmentModules
+import scanModule
+import trngTestModules
+from time import sleep
+from optparse import OptionParser
+import collections
+import pdb
+
+#TODO Create fTable.txt
+
+parser = OptionParser()
+parser.add_option("-f", "--fTable", default="fTable.txt", dest="fTableFile", help="Filename where frequency data is printed: prng, trng and  trng_valid are provided [default: %default]")
+
+(options,args) = parser.parse_args()
+
+#Sweep the RO in vdd and code (lower order only)
+#Build a dict for reverse lookup f->config
+#print sorted values into file
+#NOTE: Generation of higher codes f_id[6:2] is the responsibility of the recall function
+
+#############################################################
+################   Array and Dict definitions ###############
+#############################################################
+#DAQ port map to be found in trng_daq_port.map
+#GPIB interface setting for supply: port, channel, vddmin, vaddmax, vset 
+supplyVoltageDict={
+    "vdd_ro":(0,0,0, 1.2, 1.0), 
+    "vdd_prng":(0,1,0, 1.2, 1.0),
+    "vdd_trng_dig":(1,0,0, 1.2, 1.0),
+    "vdd_test":(1,1,0, 1.2, 1.0),
+    "vdd_tacvdd":(2,0,0, 1.2, 1.0),
+    "dvdd":(2,1,0, 3.0, 2.5),
+}
+
+#Does this usb interface require port information here, channel information? Note sure
+#Assuming port 0, channel 0 for now.
+scopeConfigDict={
+    "ro_clk":(0,0) 
+}
+
+vddMin=0.9
+vddMax=1.2
+vddStep=0.05
+vddStepCount=int((float(vddMax)-float(vddMin))/float(vddStep))+2
+
+#Initialize experiment by defining daq, scope, clock source(?) and power supplies
+#Provide supply voltage definition. This code is set up for 
+#gpib interface so you need port, channel and voltageValue.
+#Return value is a dictionary mapping from name to supply object
+daq=trngTestModules.initializeDaq("trng_daq_port.map")
+supplyDict=trngTestModules.defineVoltageSupplies(supplyVoltageDict)
+scopeDict=trngTestModules.defineOscilloscopeConnections(scopeConfigDict)
+#############################################################
+#############################################################
+
+
+#############################################################
+############ Scan In configuration ##########################
+#############################################################
+#Scan your configuration, start-up clocks
+module,scanList = scanModule.readScanFile("scan_scanConfig.txt")
+# scanVector=scanModule.genTestScanVector(scanList)
+# trngTestModules.scanDataIn(daq,scanVector)
+fDict={}
+#Sweep ro code and measure frequency
+for i in range(vddStepCount):
+    vdd=vddMin + i*vddStep
+    for f_id in range(124,128,1): 
+        #Only 4 values, 00, 01, 10, 11. Base division is 4'b11111 =>2^5=32 Higher multiples are derivable.
+        trngTestModules.modifyScanList("f_id",scanList,f_id)     
+        supplyDict["vdd_ro"].setVoltage(vdd)
+        scanVector=scanModule.genTestScanVector(scanList)
+        inputScanDict=trngTestModules.genScanDicts(scanList,scanVector)  #Generate a scanDict with this test
+        trngTestModules.scanDataIn(daq,scanVector)
+        daq.writePortName("ro_clk_en",1) #Enable RO clock
+        # pdb.set_trace()
+        measFreq=scopeDict["ro_clk"].getFrequency() #Measured frequency from scope
+        scanOutVector=trngTestModules.scanDataOut(daq,len(scanVector))
+        outputScanDict=trngTestModules.genScanDicts(scanList,scanOutVector)
+        trngTestModules.scanCheck(inputScanDict,outputScanDict,"scanCompare.txt")
+        fDict[float(measFreq)]={"f_id":f_id, "vdd":vdd}
+        
+fTableDict = collections.OrderedDict(sorted(fDict.items()))
+wfh=open(options.fTableFile,'w')
+for key in fTableDict.keys():
+    # pdb.set_trace()
+    wfh.write("{0:.4f} {1} {2:.4f}\n".format(key,fTableDict[key]["f_id"],fTableDict[key]["vdd"]))
+wfh.close()
+
+
+
+

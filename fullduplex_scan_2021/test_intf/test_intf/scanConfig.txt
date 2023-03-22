@@ -1,0 +1,31 @@
+#Scan configuration for HighVDDModule module
+#End of chain first!!!
+#Signal direction based on looking at the DUT
+module HighVDDWithScan
+
+input [2: 0] moduleSelect = 3'd0
+input [2: 0] modeSelect = 3'd0
+input [2: 0] SNGModeSelect = 3'd0
+input [15: 0] finalCycle = 16'd512
+output doneToChain = 1'd0
+output idleToChain = 1'd0
+input [7: 0] x0 = 8'd129
+input [7: 0] x1 = 8'd128
+input [7: 0] w0 = 8'd128
+input [7: 0] w1 = 8'd129
+input [7: 0] seed1_1 = 8'd7
+input [7: 0] seed1_2 = 8'd5
+input [7: 0] seed2 = 8'd11
+input [15: 0] seed3 = 16'd23
+input [15: 0] seed_misr = 16'd29
+output [15: 0] binaryMultOut = 16'd0
+output [8: 0]  binaryEDOut = 9'd0
+output [16: 0] binaryDPOut = 17'd0	
+input asynchEnIn = 1'd1
+input synchEnIn = 1'd0
+output [15: 0] SCOutputToChain = 16'd0
+input [11: 0] clkDelayCoarseFromChain = 12'd1000
+input [23: 0] clkDelayFineFromChain = 24'd0
+input [5: 0] f_idFromChain = 6'd18
+input clkInSelect = 1'd1
+input [1: 0] clkOutSelect = 2'd0

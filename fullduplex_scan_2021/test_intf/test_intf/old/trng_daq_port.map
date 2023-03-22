@@ -1,0 +1,16 @@
+0 pad_clk out
+1 reset out
+2 update out 
+3 capture out 
+4 phi out 
+5 phi_bar out 
+6 scan_in out 
+7 ro_clk_en out 
+8 scan_out in 
+9 prng_bit in 
+10 trng_out in 
+11 trng_out_valid in 
+12 ro_clk in
+# pad_clk comes from external clock source 
+# ro_clk is for observation with a scope in addition
+# Also, watch out for which pin is the power pin
